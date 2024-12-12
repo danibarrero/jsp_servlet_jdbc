@@ -55,11 +55,11 @@
         </div>
 
         <div class="col-md-2 align-self-center text-center">
-            <form class="d-inline" method="post" action="BorrarSociosSevlet">
+            <form class="d-inline" method="post" action="BorrarSociosServlet">
                 <input type="hidden" name="codigo" value="<%=socio.getSocioId() %>"/>
                 <input class="btn btn-primary"  type="submit" value="Borrar">
             </form>
-            <form class="d-inline" method="get" action="EditarSociosSevlet">
+            <form class="d-inline" method="get" action="EditarSociosServlet">
                 <input type="hidden" name="codigo" value="<%=socio.getSocioId() %>"/>
                 <input class="btn btn-primary"  type="submit" value="Editar">
             </form>

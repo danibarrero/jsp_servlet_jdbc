@@ -19,7 +19,6 @@ public class SocioDAOImpl extends AbstractDAOImpl implements SocioDAO {
         try {
             conn = connectDB();
 
-
             //1 alternativas comentadas:
             //Ver también, AbstractDAOImpl.executeInsert ...
             //Columna fabricante.codigo es clave primaria auto_increment, por ese motivo se omite de la sentencia SQL INSERT siguiente.

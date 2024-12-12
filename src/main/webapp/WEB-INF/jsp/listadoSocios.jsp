@@ -12,7 +12,7 @@
 		//CARGA DEL DRIVER Y PREPARACIÓN DE LA CONEXIÓN CON LA BBDD
 		//						v---------UTILIZAMOS LA VERSIÓN MODERNA DE LLAMADA AL DRIVER, no deprecado
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/baloncesto","root", "user");		
+		Connection conexion = DriverManager.getConnection("jdbc:mysql://localhost:3309/baloncesto","root", "secret");
 
 		//UTILIZAR STATEMENT SÓLO EN QUERIES NO PARAMETRIZADAS.
 		Statement s = conexion.createStatement();
