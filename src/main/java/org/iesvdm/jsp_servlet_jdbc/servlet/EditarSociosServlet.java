@@ -56,7 +56,6 @@ public class EditarSociosServlet extends HttpServlet {
         }
 
 
-        //verificanos que el socio con ese ID existe
         Optional<Socio> socioOptional = this.socioDAO.find(numero);
         if (!socioOptional.isPresent()) {
             request.setAttribute("error", "No existe el socio con el codigo: " + numero);
@@ -65,23 +64,19 @@ public class EditarSociosServlet extends HttpServlet {
             return;
         }
 
-        //validamos los datos del socio
         Optional<Socio> socioValidado = UtilServlet.validaGrabar(request);
         if (socioValidado.isPresent()) {
             Socio editarSocio = socioValidado.get();
             editarSocio.setSocioId(numero);
 
-            //actualizamos los datos del socio
             this.socioDAO.update(editarSocio);
 
-            // Redirigimos a la página de listado
             List<Socio> listado = this.socioDAO.getAll();
             request.setAttribute("listado", listado);
             request.getRequestDispatcher("/WEB-INF/jsp/listadoSociosB.jsp").forward(request, response);
         } else {
-            //si hay errores en la validación
             request.setAttribute("error", "Error en la validación de los datos, Inténtelo de nuevo");
-            request.setAttribute("editarSocio", socioOptional.get()); //volvemos a enviar el socio a editar al formulario
+            request.setAttribute("editarSocio", socioOptional.get());
             request.getRequestDispatcher("/WEB-INF/jsp/formularioEditarSocio.jsp").forward(request, response);
         }
     }
