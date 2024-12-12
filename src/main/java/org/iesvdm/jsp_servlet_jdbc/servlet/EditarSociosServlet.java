@@ -30,6 +30,8 @@ public class EditarSociosServlet extends HttpServlet {
         try {
             Socio socio= this.socioDAO.find(codigo).orElse(null);
             request.setAttribute("socio", socio);
+            dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioEditarSocio.jsp");
+            dispatcher.forward(request, response);
         } catch (NumberFormatException e) {
             request.setAttribute("error", "No se encontro el codigo");
             dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioEditarSocio.jsp");
